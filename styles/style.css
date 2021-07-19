@@ -1,3 +1,154 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');
+
+:root {
+  --primary: deepPink;
+  --headerBg: #1d1d26;
+  --textColor: #0e0f0f;
+  --textColorInverse: #fcfdff;
+  --bg: #fcfdF0;
+  --bgTint: #dfeded;
+  --bgGrey: #e6e8e8;
+  --white: #fcfdff;
+  --linkColor: deepPink;
+  --border-color: #0e0f0f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161618;
+    --bgTint: #27272c;
+    --textColor: #dbd7db;
+    --bgGrey: #27272c;
+    --textColorInverse: #0e0f0f;
+    --linkColor: #70c989;
+    --border-color: var(--white);
+  }
+}
+
+* {
+  color: var(--textColor);
+}
+
+a {
+  color: var(--linkColor);
+}
+
 body {
-  background-color: tomato;
+  font: 16px Helvetica, Sans-Serif;
+  line-height: 24px;
+  background-color: var(--bg);
+}
+
+p {
+  line-height: 18px;
+}
+
+h1 {
+  margin: 0 0 16px 0;
+  padding: 0 0 16px 0;
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+
+.resume__section_content__list__item span {
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 16px;
+  color: #999;
+  font-weight: normal;
+  padding-left: 15px;
+  float: right;
+}
+
+.resume__section_content__list {
+  list-style-type: none;
+}
+
+.resume__section_content__list li {
+  margin-top: 10px;
+}
+
+.resume__section_content__list li:first-child {
+  margin-top: 0px;
+}
+
+body.resume {
+  width: 800px;
+  margin: 48px auto 60px;
+}
+
+.resume header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.resume__headshot {
+  margin-left: auto;
+  transform: rotate(-15deg);
+  padding-left: 10px;
+}
+.resume__header__text {
+  padding-right: 25px;
+} 
+
+
+
+ 
+.polaroid img {
+  border: 10px solid var(--white);
+  border-bottom: 45px solid var(--white);
+  border-top: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  -webkit-box-shadow: 1px 1px 1px #777;
+     -moz-box-shadow: 1px 1px 1px #777;
+          box-shadow: 1px 1px 1px #777;
+
+  -webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+}
+ 
+.polaroid h3 {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font: 400 18px/1 'Kaushan Script', cursive;
+  color: #888;
+  bottom: 0;
+}
+
+.resume__section {
+  display: grid;
+  grid-template-columns: 150px auto;
+  margin-bottom: 15px;
+}
+
+.resume__section-header {
+  text-align: center;
+  border-right: 2px solid black;
+  padding-left: 10px;
+}
+
+.resume__section__content p {
+  line-height: 30px;
+}
+
+.resume__main {
+  margin-top: 30px;
+}
+
+.resume__main h2 {
+  font-size: 1.5em;
+
+}
+
+.resume__skills {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
 }
