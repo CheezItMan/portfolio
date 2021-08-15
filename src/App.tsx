@@ -4,6 +4,7 @@ import Avatar from './components/avatar';
 import MainMenu, {LinkEntry} from './components/main_menu';
 import Sidebar from './components/sidebar';
 import Contact from './components/contact';
+import Splash from './components/splash';
 
 const owner = 'Bozo the Clown'
 const avatarPic = 'http://placekitten.com/120/120';
@@ -33,19 +34,22 @@ const menuLinks: LinkEntry[] = [
     active: false,
   },
 ]
+const name = 'Bob Hope'
+const skills = ['developer', 'designer', 'freelancer', 'photographer']
 
 // lat: 41.8781, lng: -87.6298
 const App = () => {
   return (
     <div className="App">
-      <Sidebar>
-          <Avatar owner={owner} avatarPic={avatarPic} />
-          <MainMenu links={menuLinks} />
-      </Sidebar>
-      <header className="App-header">
-        
-      </header>
-      <Contact 
+      <div className="sidebar">
+        <Sidebar>
+            <Avatar owner={owner} avatarPic={avatarPic} />
+            <MainMenu links={menuLinks} />
+        </Sidebar>
+      </div>
+      <div className="content">
+        <Splash name={name} skills={skills} />
+        <Contact 
         name="Bob Hope" 
         email="bob@hope.com"  
         lon={-87.6298}
@@ -53,6 +57,7 @@ const App = () => {
         city="Chicago"
         state="Il"
       />
+      </div>
     </div>
   );
 }
