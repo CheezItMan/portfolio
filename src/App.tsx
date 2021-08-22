@@ -6,6 +6,7 @@ import Sidebar from './components/sidebar';
 import Contact from './components/contact';
 import Splash from './components/splash';
 import About from './components/about';
+import Portfolio from './components/portfolio';
 
 const owner = 'Bozo the Clown'
 const avatarPic = 'http://placekitten.com/120/120';
@@ -51,6 +52,7 @@ const App = () => {
       <div className="content">
         <Splash name={name} skills={skills} />
         <About />
+        <Portfolio />
         <Contact 
         name="Bob Hope" 
         email="bob@hope.com"  

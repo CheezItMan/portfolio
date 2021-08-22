@@ -1,29 +1,33 @@
-.italic p {
+.italic {
     font-style: italic;
 }
-/* 
-.right {
-    float: right;
-}
-
-.image {
-    float: left;
-} */
 
 .flexbox-container {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .flex-child {
     flex: 1;
     text-align: left;
-    margin-left: 9rem;
+    margin: 10px;
 }
 
-/* .right {
-} */
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
 
-.about-intro, .facts, .skills {
+.about-intro, .facts, .portfolio__skills, .image {
     text-align: left;
-    margin-left: 9rem;
+}
+
+h2, h3, .skill {
+    font-weight: bold;
+}
+
+.skills-level {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
 }
