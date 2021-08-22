@@ -1,0 +1,29 @@
+.italic p {
+    font-style: italic;
+}
+/* 
+.right {
+    float: right;
+}
+
+.image {
+    float: left;
+} */
+
+.flexbox-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+    text-align: left;
+    margin-left: 9rem;
+}
+
+/* .right {
+} */
+
+.about-intro, .facts, .skills {
+    text-align: left;
+    margin-left: 9rem;
+}
