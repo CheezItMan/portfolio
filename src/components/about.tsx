@@ -17,21 +17,21 @@ const About = () => {
                     <h3>Software Engineer</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <p>Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.</p>
+                    <div className="about-list">
+                        <i className="fas fa-angle-right"></i> 
+                        <i className="fas fa-angle-right"></i>
+                        <i className="fas fa-angle-right"></i>
+                        <i className="fas fa-angle-right"></i>
+                        <i className="fas fa-angle-right"></i>
+                        <i className="fas fa-angle-right"></i>
+                        <i className="fas fa-angle-right"></i>
+                        <i className="fas fa-angle-right"></i>
+                    </div>
                 </div>
             </div>
             <div className="facts">
                 <h3>Facts</h3>
                 <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-                <div className="facts-list">
-                    <i className="fas fa-angle-right"></i> 
-                    <i className="fas fa-angle-right"></i>
-                    <i className="fas fa-angle-right"></i>
-                    <i className="fas fa-angle-right"></i>
-                    <i className="fas fa-angle-right"></i>
-                    <i className="fas fa-angle-right"></i>
-                    <i className="fas fa-angle-right"></i>
-                    <i className="fas fa-angle-right"></i>
-                </div>
             </div>
             <div className="portfolio__skills">
                 <h3>Skills</h3>
