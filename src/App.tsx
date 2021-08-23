@@ -1,5 +1,4 @@
 import './App.css';
-
 import Avatar from './components/avatar';
 import MainMenu, {LinkEntry} from './components/main_menu';
 import Sidebar from './components/sidebar';

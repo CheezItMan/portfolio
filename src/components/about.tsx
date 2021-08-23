@@ -22,6 +22,16 @@ const About = () => {
             <div className="facts">
                 <h3>Facts</h3>
                 <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <div className="facts-list">
+                    <i className="fas fa-angle-right"></i> 
+                    <i className="fas fa-angle-right"></i>
+                    <i className="fas fa-angle-right"></i>
+                    <i className="fas fa-angle-right"></i>
+                    <i className="fas fa-angle-right"></i>
+                    <i className="fas fa-angle-right"></i>
+                    <i className="fas fa-angle-right"></i>
+                    <i className="fas fa-angle-right"></i>
+                </div>
             </div>
             <div className="portfolio__skills">
                 <h3>Skills</h3>

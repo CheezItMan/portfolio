@@ -31,3 +31,21 @@ h2, h3, .skill {
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
+
+.facts-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: #149ddd;
+}
+
+.fas, .fa-angle-right {
+    font-size: 20px;
+}
+
+.portfolio__skills h3 {
+    padding-top: 2rem;
+}
+
+.facts {
+    background-color: #f5f8fd;
+}
