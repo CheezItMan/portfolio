@@ -38,21 +38,47 @@
   }
 }
 
-
 .portfolio__sidebar {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  background-color: #d5e2f2;
+  /* width: 300px; */
+  max-width: 25%;
+  height: 100%;
+  background-color: #040B14;
   text-align: center;
   align-items: top;
   justify-content: left;
   position: fixed;
-  padding: 0 15px;
+  padding: 0 60px;
   overflow-y: auto;
 }
 
 .contact-map {
   width: 800px;
   height: 600px;
+}
+
+.portfolio__avatar {
+  border-radius: 50%;
+  border: 8px solid #2c2f3f;
+}
+
+.portfolio__menu, a {
+  list-style-type: none;
+  text-decoration: none;
+  text-align: left;
+  color: #a8a9b4;
+}
+
+.portfolio__menu, a:hover {
+  color: #FFFFFF;
+}
+
+.sidebar {
+  float: left;
+}
+
+.content {
+  float: right;
+  max-width: 75%;
 }
