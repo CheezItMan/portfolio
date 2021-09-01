@@ -1,7 +1,6 @@
 import React, { useState, FormEvent } from 'react';
 import { MessageData } from '../types/message_data';
 import './contact.css';
-// import GoogleMapReact from 'google-map-react';
 
 
 
