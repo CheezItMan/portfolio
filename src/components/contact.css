@@ -1,0 +1,39 @@
+.portfolio__contact {
+    text-align: left;
+    margin: 15px;
+}
+
+.portfolio__contact h2::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #149ddd;
+    bottom: 0;
+    left: 0;
+  }
+
+.portfolio__contact h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    color: navy;
+}
+
+.form-row {
+    padding-bottom: 20px;
+}
+
+.portfolio__contact__contact__form_block {
+    margin-top: 0;
+}
+
+.portfolio__contact__form {
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
+    width: 100%;
+    padding: 30px;
+    background: #fff;
+}
