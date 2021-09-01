@@ -1,0 +1,51 @@
+.italic {
+    font-style: italic;
+}
+
+.flexbox-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-child {
+    flex: 1;
+    text-align: left;
+    margin: 10px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.about-intro, .facts, .portfolio__skills, .image {
+    text-align: left;
+}
+
+h2, h3, .skill {
+    font-weight: bold;
+}
+
+.skills-level {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.about-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: #149ddd;
+}
+
+.fas, .fa-angle-right {
+    font-size: 20px;
+}
+
+.portfolio__skills h3 {
+    padding-top: 2rem;
+}
+
+.facts {
+    background-color: #f5f8fd;
+}

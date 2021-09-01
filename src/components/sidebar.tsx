@@ -1,4 +1,5 @@
 import React from 'react';
+import './sidebar.css';
 
 type SidebarProps = {
     children?: JSX.Element[],

@@ -1,0 +1,16 @@
+.portfolio__sidebar {
+    background-color: #040b14;
+    height: 100vh;
+    color: #fff;
+    font-size: 15px;
+    position: fixed;
+    overflow-y: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+}
+
+.portfolio__sidebar a {
+    color: #fff;
+}

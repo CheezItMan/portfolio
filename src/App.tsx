@@ -4,32 +4,40 @@ import Avatar from './components/avatar';
 import MainMenu, {LinkEntry} from './components/main_menu';
 import Sidebar from './components/sidebar';
 import Contact from './components/contact';
-import { MessageData } from './types/message_data';
+import Splash from './components/splash';
+import About from './components/about';
+import Portfolio from './components/portfolio';
 
 const owner = 'Bozo the Clown'
 const avatarPic = 'http://placekitten.com/120/120';
 const menuLinks: LinkEntry[] = [
   {
-    icon: "bi-plus-circle",
+    icon: "bi bi-house-door",
     text: "Home",
     url: "#",
+    active: true,
   },
   {
-    icon: "bi-plus-circle",
+    icon: "bi bi-info-square",
     text: "About",
     url: "#",
+    active: false,
   },
   {
-    icon: "bi-plus-circle",
+    icon: "bi bi-sticky",
     text: "Portfolio",
     url: "#",
+    active: false,
   },
   {
-    icon: "bi-plus-circle",
+    icon: "bi bi-mailbox",
     text: "Contact",
     url: "#",
+    active: false,
   },
 ]
+const name = 'Bob Hope'
+const skills = ['developer', 'designer', 'freelancer', 'photographer']
 
 // lat: 41.8781, lng: -87.6298
 const App = () => {
@@ -41,14 +49,17 @@ const App = () => {
 
   return (
     <div className="App">
-      <Sidebar>
-          <Avatar owner={owner} avatarPic={avatarPic} />
-          <MainMenu links={menuLinks} />
-      </Sidebar>
-      <header className="App-header">
-        
-      </header>
-      <Contact 
+      <div className="sidebar">
+        <Sidebar>
+            <Avatar owner={owner} avatarPic={avatarPic} />
+            <MainMenu links={menuLinks} />
+        </Sidebar>
+      </div>
+      <div className="content">
+        <Splash name={name} skills={skills} />
+        <About />
+        <Portfolio />
+        <Contact 
         name="Bob Hope" 
         email="bob@hope.com"  
         lon={-87.6298}
@@ -57,6 +68,7 @@ const App = () => {
         state="Il"
         onSendMsg={sendEmail}
       />
+      </div>
     </div>
   );
 }
