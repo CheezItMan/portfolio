@@ -9,7 +9,7 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ img, altText, title, description }: CardProps) => {
     return(
-        <div className="col">
+        <div className="col d-flex justify-content-center">
             <div className="card m-4 min-vw-50">
                 <img src={img} className="card-img-top" alt={altText} />
                 <div className="card-body">
