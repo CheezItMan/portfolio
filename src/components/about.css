@@ -2,18 +2,13 @@
     font-style: italic;
 }
 
-.flexbox-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .flex-child {
     flex: 1;
     text-align: left;
     margin: 10px;
 }
 
-img {
+.about img {
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -23,7 +18,7 @@ img {
     text-align: left;
 }
 
-h2, h3, .skill {
+.about h2, h3, .skill {
     font-weight: bold;
 }
 
