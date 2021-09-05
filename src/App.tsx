@@ -66,7 +66,7 @@ const App = () => {
         lat={41.8781}
         city="Chicago"
         state="Il"
-        onSendMsg={() =>{} }
+        // onSendMsg={sendEmail}
       />
       </div>
     </div>

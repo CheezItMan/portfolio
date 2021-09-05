@@ -9,3 +9,7 @@ h2 {
 .background {
     background-color: #f5f8fd;
 }
+
+.card {
+    min-width: 300px;
+}
