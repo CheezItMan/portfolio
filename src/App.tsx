@@ -55,8 +55,8 @@ const App = () => {
             <MainMenu links={menuLinks} />
         </Sidebar>
       </div>
+      <Splash name={name} skills={skills} />
       <div className="content">
-        <Splash name={name} skills={skills} />
         <About />
         <Portfolio />
         <Contact 
@@ -66,7 +66,7 @@ const App = () => {
         lat={41.8781}
         city="Chicago"
         state="Il"
-        onSendMsg={sendEmail}
+        onSendMsg={() =>{} }
       />
       </div>
     </div>
