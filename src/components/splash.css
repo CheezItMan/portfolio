@@ -1,9 +1,7 @@
 .portfolio__splash {
-    background-size: cover;  
+    background-size: cover;
     background-image: url("/src/images/splash.jpg");
     height: 100vh;
-    padding: 0;
-    margin: 0;
 }
 
 .portfolio__splash h2 {
