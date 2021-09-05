@@ -14,25 +14,25 @@ const menuLinks: LinkEntry[] = [
   {
     icon: "bi bi-house-door",
     text: "Home",
-    url: "#",
+    url: "https://cheezitman.github.io/portfolio",
     active: true,
   },
   {
     icon: "bi bi-info-square",
     text: "About",
-    url: "#",
+    url: "https://cheezitman.github.io/portfolio/about",
     active: false,
   },
   {
     icon: "bi bi-sticky",
     text: "Portfolio",
-    url: "#",
+    url: "https://cheezitman.github.io/portfolio/portfolio",
     active: false,
   },
   {
     icon: "bi bi-mailbox",
     text: "Contact",
-    url: "#",
+    url: "https://cheezitman.github.io/portfolio/contact",
     active: false,
   },
 ]
@@ -42,10 +42,10 @@ const skills = ['developer', 'designer', 'freelancer', 'photographer']
 // lat: 41.8781, lng: -87.6298
 const App = () => {
 
-  const sendEmail = (msgData: MessageData) => {
-    console.log('Sending Email', msgData)
+  // const sendEmail = (msgData: MessageData) => {
+  //   console.log('Sending Email', msgData)
 
-  }
+  // }
 
   return (
     <div className="App">
@@ -66,7 +66,7 @@ const App = () => {
         lat={41.8781}
         city="Chicago"
         state="Il"
-        onSendMsg={sendEmail}
+        onSendMsg={() =>{} }
       />
       </div>
     </div>
