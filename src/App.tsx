@@ -55,8 +55,8 @@ const App = () => {
             <MainMenu links={menuLinks} />
         </Sidebar>
       </div>
-      <Splash name={name} skills={skills} />
       <div className="content">
+        <Splash name={name} skills={skills} />
         <About />
         <Portfolio />
         <Contact 

@@ -4,6 +4,15 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
+h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: navy;
+}
+
 .App {
   text-align: center;
   font-family: "Open Sans", sans-serif;
@@ -22,12 +31,10 @@ h1, h2, h3, h4, h5, h6 {
 .portfolio__sidebar {
   display: flex;
   flex-direction: column;
-  /* width: 300px; */
   background-color: #040B14;
   text-align: center;
   align-items: top;
   justify-content: left;
-  // position: fixed;
   padding: 0 60px;
   overflow-y: auto;
 }
@@ -35,6 +42,8 @@ h1, h2, h3, h4, h5, h6 {
 @media only screen and (min-width : 555px) {
   .portfolio__sidebar {
       height: 100vh;
+      position: fixed;
+      width: 400px;
   }
 }
 
@@ -65,4 +74,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .content {
   flex-grow: 2;
+}
+
+@media only screen and (min-width : 555px) {
+  .content {
+    margin-left: 400px;
+  }
 }

@@ -9,7 +9,7 @@ type SplashProps = {
 
 const Splash: React.FC<SplashProps> = ({name, skills}: SplashProps) => {
     return(
-        <div className="portfolio__splash content" >
+        <div className="portfolio__splash" >
             <h2>{name}</h2>
             <Typewriter
                 onInit={(typewriter => {

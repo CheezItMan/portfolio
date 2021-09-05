@@ -14,8 +14,9 @@
     object-fit: cover;
 }
 
-.about-intro, .facts, .portfolio__skills, .image {
+.about-intro, .facts, .portfolio__skills, .image, .background {
     text-align: left;
+    padding: 10px;
 }
 
 .about h2, h3, .skill {
