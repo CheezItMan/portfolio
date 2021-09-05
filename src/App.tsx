@@ -14,25 +14,25 @@ const menuLinks: LinkEntry[] = [
   {
     icon: "bi bi-house-door",
     text: "Home",
-    url: "#",
+    url: "https://cheezitman.github.io/portfolio",
     active: true,
   },
   {
     icon: "bi bi-info-square",
     text: "About",
-    url: "#",
+    url: "https://cheezitman.github.io/portfolio/about",
     active: false,
   },
   {
     icon: "bi bi-sticky",
     text: "Portfolio",
-    url: "#",
+    url: "https://cheezitman.github.io/portfolio/portfolio",
     active: false,
   },
   {
     icon: "bi bi-mailbox",
     text: "Contact",
-    url: "#",
+    url: "https://cheezitman.github.io/portfolio/contact",
     active: false,
   },
 ]
