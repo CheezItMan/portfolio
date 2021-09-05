@@ -11,11 +11,11 @@ type ContactProps = {
     lon: number,
     city: string,
     state: string,
-    onSendMsg: (msg: MessageData) => void,
+    // onSendMsg: (msg: MessageData) => void,
 }
 
 
-const Contact: React.FC<ContactProps> = ({name, email, lat, lon, city, state, onSendMsg}: ContactProps) => {
+const Contact: React.FC<ContactProps> = ({name, email, lat, lon, city, state }: ContactProps) => {
     const [formData, setformData] = useState({
         name: '',
         email: '',
@@ -43,7 +43,7 @@ const Contact: React.FC<ContactProps> = ({name, email, lat, lon, city, state, on
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
-        onSendMsg(formData);
+        // onSendMsg(formData);
         setformData({
             name: '',
             email: '',
