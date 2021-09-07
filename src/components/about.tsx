@@ -2,7 +2,7 @@ import React from "react";
 import profilePic from '../images/splash.jpg'
 import './about.css'
 
-const About = () => {
+const About: React.FC = () => {
     return(
         <div className="portfolio__about">
             <div className="about-intro">
