@@ -7,6 +7,7 @@ import Contact from './components/contact';
 import Splash from './components/splash';
 import About from './components/about';
 import Portfolio from './components/portfolio';
+import AddProjectForm from './components/addprojectform';
 
 const owner = 'Bozo the Clown'
 const avatarPic = 'http://placekitten.com/120/120';
@@ -59,6 +60,7 @@ const App = () => {
         <Splash name={name} skills={skills} />
         <About />
         <Portfolio />
+        <AddProjectForm />
         <Contact 
         name="Bob Hope" 
         email="bob@hope.com"  
