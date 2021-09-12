@@ -38,6 +38,9 @@ const menuLinks: LinkEntry[] = [
 ]
 const name = 'Bob Hope'
 const skills = ['developer', 'designer', 'freelancer', 'photographer']
+const twitterUrl = 'https://twitter.com'
+const linkedinUrl = 'https://linkedin.com'
+const githubUrl = 'https://github.com'
 
 // lat: 41.8781, lng: -87.6298
 const App = () => {
@@ -51,7 +54,7 @@ const App = () => {
     <div className="App">
       <div className="sidebar">
         <Sidebar>
-            <Avatar owner={owner} avatarPic={avatarPic} />
+            <Avatar owner={owner} avatarPic={avatarPic} twitterUrl={twitterUrl} linkedinUrl={linkedinUrl} githubUrl={githubUrl} />
             <MainMenu links={menuLinks} />
         </Sidebar>
       </div>
