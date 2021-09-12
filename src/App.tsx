@@ -12,25 +12,25 @@ const owner = 'Bozo the Clown'
 const avatarPic = 'http://placekitten.com/120/120';
 const menuLinks: LinkEntry[] = [
   {
-    icon: "bi bi-house-door",
+    icon: "fas fa-home",
     text: "Home",
     url: "https://cheezitman.github.io/portfolio",
     active: true,
   },
   {
-    icon: "bi bi-info-square",
+    icon: "fas fa-portrait",
     text: "About",
     url: "https://cheezitman.github.io/portfolio/about",
     active: false,
   },
   {
-    icon: "bi bi-sticky",
+    icon: "fa fa-code",
     text: "Portfolio",
     url: "https://cheezitman.github.io/portfolio/portfolio",
     active: false,
   },
   {
-    icon: "bi bi-mailbox",
+    icon: "fa fa-envelope",
     text: "Contact",
     url: "https://cheezitman.github.io/portfolio/contact",
     active: false,
