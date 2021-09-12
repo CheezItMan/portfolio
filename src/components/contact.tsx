@@ -144,7 +144,6 @@ const Contact: React.FC<ContactProps> = ({name, email, lat, lon, city, state }: 
                     </form>
                 </section>
             </div>
-
         </article>
     );
 }
