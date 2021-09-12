@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiTwitter, FiLinkedin } from "react-icons/fi";
+import './avatar.css'
 
 type AvatarProps = {
     owner: string,
@@ -11,8 +12,8 @@ const Avatar = ({ owner, avatarPic }: AvatarProps) => {
         <img className="portfolio__avatar" src={avatarPic} alt={owner} />
           <h1><a href="/">{owner}</a></h1>
           <div className="portfolio__social">
-            <FiTwitter />
-            <FiLinkedin />
+            <FiTwitter style={{margin: '5px'}}/>
+            <FiLinkedin style={{margin: '5px'}} />
           </div>
     </div>;
 }
