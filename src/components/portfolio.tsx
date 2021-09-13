@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import './portfolio.css'
 import Card from './card';
 import AddProjectForm from './addprojectform';
@@ -41,7 +41,19 @@ const projects = [
     }
 ]
 
-const Portfolio: React.FC = () => {
+type PortfolioProps = {
+    onFormSubmit: (event: FormEvent) => void,
+    onFormFieldChange: (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void,
+    formFields: {
+        img: string,
+        altText: string,
+        title: string, 
+        description: string,
+        url: string
+    }
+}
+
+const Portfolio: React.FC<PortfolioProps> = ({ onFormSubmit, onFormFieldChange, formFields }: PortfolioProps) => {
     return(
         <React.Fragment>
         <div className="background">
@@ -53,6 +65,7 @@ const Portfolio: React.FC = () => {
                         <Card img={project.img} altText={"project image"} title={project.title} description={project.description} url={project.url} />
                     )})
                 }
+                <Card img={formFields.img} altText={formFields.altText} title={formFields.title} description={formFields.description} url={formFields.url} />
             </div>
             <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
@@ -62,7 +75,7 @@ const Portfolio: React.FC = () => {
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
-                        <AddProjectForm />
+                        <AddProjectForm onFormSubmit={onFormSubmit} onFormFieldChange={onFormFieldChange} formFields={formFields} />
                     </div>
                     </div>
                 </div>

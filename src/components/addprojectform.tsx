@@ -1,44 +1,19 @@
-import React, { useState, FormEvent } from 'react';
+import React, { FormEvent } from 'react';
 import './addprojectform.css';
 
-const AddProjectForm: React.FC = () => {
-    const [formFields, setFormFields] = useState({
-        title: '',
-        img: '',
-        altText: '',
-        description: '',
-        url: ''
-    })
+type AddProjectProps = {
+    onFormSubmit: (event: FormEvent) => void,
+    onFormFieldChange: (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void,
+    formFields: {
+        img: string,
+        altText: string,
+        title: string, 
+        description: string,
+        url: string
+    }
+}
 
-    const onFormFieldChange = (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
-        const newFormData = {
-            ...formFields 
-        };
-    
-        switch (event.currentTarget.name) {
-            case 'title': 
-            case 'img':
-            case 'altText':
-            case 'description':
-            case 'url': 
-                newFormData[event.currentTarget.name] = event.currentTarget.value;
-        }
-
-        setFormFields(newFormData); 
-    };
-
-    const onFormSubmit = (event: FormEvent) => {
-        event.preventDefault();
-        
-        setFormFields({
-            title: '',
-            img: '',
-            altText: '',
-            description: '',
-            url: ''
-        });
-    };
-
+const AddProjectForm: React.FC<AddProjectProps> = ({ onFormSubmit, onFormFieldChange, formFields }: AddProjectProps) => {
     return(
         <React.Fragment>
             <section className="portfolio__add__project__form col-lg-6 col-md-6 d-flex p-3 mb-5 rounded">
@@ -74,7 +49,7 @@ const AddProjectForm: React.FC = () => {
             </section>
             <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" onClick={onFormSubmit} className="btn btn-primary">Add Project</button>
+                <button type="submit" onClick={onFormSubmit} className="btn btn-primary">Add Project</button>
             </div>
         </React.Fragment>
     )

@@ -1,7 +1,7 @@
 import './App.scss';
-
+import React, { useState, FormEvent } from 'react';
 import Avatar from './components/avatar';
-import MainMenu, {LinkEntry} from './components/main_menu';
+import MainMenu, { LinkEntry } from './components/main_menu';
 import Sidebar from './components/sidebar';
 import Contact from './components/contact';
 import Splash from './components/splash';
@@ -50,6 +50,39 @@ const App = () => {
 
   // }
 
+  const initialFormFields = {
+    title: '',
+    img: '',
+    altText: '',
+    description: '',
+    url: ''
+  }
+
+  const [formFields, setFormFields] = useState(initialFormFields)
+
+  const onFormFieldChange = (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+    const newFormData = {
+        ...formFields 
+    };
+
+    switch (event.currentTarget.name) {
+        case 'title': 
+        case 'img':
+        case 'altText':
+        case 'description':
+        case 'url': 
+            newFormData[event.currentTarget.name] = event.currentTarget.value;
+    }
+
+    setFormFields(newFormData); 
+  };
+
+  const onFormSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    
+    setFormFields(initialFormFields);
+  };
+
   return (
     <div className="App">
       <div className="sidebar">
@@ -61,7 +94,7 @@ const App = () => {
       <div className="content">
         <Splash name={name} skills={skills} />
         <About />
-        <Portfolio />
+        <Portfolio onFormSubmit={onFormSubmit} onFormFieldChange={onFormFieldChange} formFields={formFields} />
         <Contact 
         name="Bob Hope" 
         email="bob@hope.com"  
