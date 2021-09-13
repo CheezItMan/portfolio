@@ -1,27 +1,27 @@
 import React, { useState, FormEvent } from 'react';
-import { MessageData } from '../types/message_data';
+import { MessageData } from '../types/message_data.type';
 import './contact.css';
 
 
 
 type ContactProps = {
-    name: string,
-    email: string,
-    lat: number,
-    lon: number,
-    city: string,
-    state: string,
-    // onSendMsg: (msg: MessageData) => void,
+    onSendMsg: (msg: MessageData) => void,
 }
 
 
-const Contact: React.FC<ContactProps> = ({name, email, lat, lon, city, state }: ContactProps) => {
+const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
     const [formData, setformData] = useState({
         name: '',
         email: '',
         subject: '',
         message: '',
     });
+
+    const [notification, setNotification] = useState('');
+
+    const notifier = (msg: string) => {
+        setNotification(msg);
+    }
 
     const updateField = (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
         event.preventDefault();
@@ -43,7 +43,11 @@ const Contact: React.FC<ContactProps> = ({name, email, lat, lon, city, state }: 
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
-        // onSendMsg(formData);
+        const messageData = {
+            ...formData,
+            notifier,
+        }
+        onSendMsg(messageData);
         setformData({
             name: '',
             email: '',
@@ -57,6 +61,7 @@ const Contact: React.FC<ContactProps> = ({name, email, lat, lon, city, state }: 
             <div className="row">
                 <div className="section-title md-12 mb-5">
                 <h2>Contact</h2>
+                { notification !== ''? <h3 className="alert">{notification}</h3>: ''}
                 <p>
                     Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
                 </p>
