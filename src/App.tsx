@@ -7,6 +7,7 @@ import Contact from './components/contact';
 import Splash from './components/splash';
 import About from './components/about';
 import Portfolio from './components/portfolio';
+import Footer from './components/footer'; 
 
 const owner = 'Bozo the Clown'
 const avatarPic = 'http://placekitten.com/120/120';
@@ -89,6 +90,7 @@ const App = () => {
         <Sidebar>
             <Avatar owner={owner} avatarPic={avatarPic} twitterUrl={twitterUrl} linkedinUrl={linkedinUrl} githubUrl={githubUrl} />
             <MainMenu links={menuLinks} />
+            <Footer />
         </Sidebar>
       </div>
       <div className="content">
