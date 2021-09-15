@@ -153,6 +153,4 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
     );
 }
 
-
-
 export default Contact;
