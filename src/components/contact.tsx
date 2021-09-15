@@ -2,12 +2,9 @@ import React, { useState, FormEvent } from 'react';
 import { MessageData } from '../types/message_data.type';
 import './contact.css';
 
-
-
 type ContactProps = {
     onSendMsg: (msg: MessageData) => void,
 }
-
 
 const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
     const [formData, setformData] = useState({
@@ -25,7 +22,6 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
 
     const updateField = (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
         event.preventDefault();
-
 
         const newData = {
             ...formData,
