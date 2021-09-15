@@ -40,14 +40,7 @@ const menuLinks: LinkEntry[] = [
 const name = 'Bob Hope'
 const skills = ['developer', 'designer', 'freelancer', 'photographer']
 
-// lat: 41.8781, lng: -87.6298
 const App = () => {
-
-  // const sendEmail = (msgData: MessageData) => {
-  //   console.log('Sending Email', msgData)
-
-  // }
-
   return (
     <div className="App">
       <div className="sidebar">
