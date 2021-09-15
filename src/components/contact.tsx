@@ -32,6 +32,9 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
             case 'subject':
             case 'message': 
                 newData[event.currentTarget.name] = event.currentTarget.value;
+                break;
+            default: 
+                throw new Error("Invalid field name");
         }
 
         setformData(newData);
