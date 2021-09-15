@@ -30,7 +30,6 @@ export const sendEmail = ({
     message, 
     notifier
     }: MessageData) => {
-
     const apiClient = new EmailApiClient();
     apiClient.sendEmail(name, subject, message)
       .then((response) => {
@@ -38,7 +37,7 @@ export const sendEmail = ({
       })
       .catch((error) => {
         notifier('Error Sending Email');
-      })
+      });
 }
 
 export default EmailApiClient;
