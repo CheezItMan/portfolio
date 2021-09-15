@@ -3,6 +3,7 @@ import { EmailMessage } from '../types/email.type';
 import { MessageData } from '../types/message_data.type';
 
 const EMAIL_URL = 'https://us-central1-portfolio-ca781.cloudfunctions.net';
+const EMAIL_ENDPOINT = '/addMessage';
 
 class EmailApiClient extends HttpClient {
     public constructor() {
@@ -16,7 +17,7 @@ class EmailApiClient extends HttpClient {
                 'Accept': '*/*',
             }
         }
-        return this.instance.post<EmailMessage>('/addMessage', {
+        return this.instance.post<EmailMessage>(EMAIL_ENDPOINT, {
             name,
             subject,
             message
