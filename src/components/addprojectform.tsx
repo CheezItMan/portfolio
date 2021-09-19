@@ -1,19 +1,58 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useState } from 'react';
 import './addprojectform.css';
+import { ProjectProps } from '../App';
 
 type AddProjectProps = {
-    onFormSubmit: (event: FormEvent) => void,
-    onFormFieldChange: (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void,
-    formFields: {
-        img: string,
-        altText: string,
-        title: string, 
-        description: string,
-        url: string
-    }
+    projects: ProjectProps[]
+    updateProjects: (projects: ProjectProps[]) => void
 }
 
-const AddProjectForm: React.FC<AddProjectProps> = ({ onFormSubmit, onFormFieldChange, formFields }: AddProjectProps) => {
+const AddProjectForm: React.FC<AddProjectProps> = ({ updateProjects, projects }: AddProjectProps) => {
+    const initialFormFields = {
+        title: '',
+        img: '',
+        altText: '',
+        description: '',
+        url: ''
+    }
+    
+    
+    const [formFields, setFormFields] = useState(initialFormFields)
+
+    const onFormFieldChange = (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+        const newFormData = {
+            ...formFields 
+        };
+    
+        switch (event.currentTarget.name) {
+            case 'title': 
+            case 'img':
+            case 'altText':
+            case 'description':
+            case 'url': 
+                newFormData[event.currentTarget.name] = event.currentTarget.value;
+        }
+    
+        setFormFields(newFormData); 
+    };
+
+    const onFormSubmit = (event: FormEvent) => {
+        event.preventDefault();
+    
+        const newProject = {
+            title: formFields.title,
+            img: formFields.img,
+            altText: formFields.altText,
+            description: formFields.description,
+            url: formFields.url
+        }
+    
+        const projectsList = [...projects, newProject]
+        
+        updateProjects(projectsList);
+        setFormFields(initialFormFields);
+    };
+
     return(
         <React.Fragment>
             <section className="portfolio__add__project__form col-lg-6 col-md-6 d-flex p-3 mb-5 rounded">

@@ -1,5 +1,4 @@
 import './App.scss';
-// import React, { useState, FormEvent } from 'react';
 import Avatar from './components/avatar';
 import MainMenu, { LinkEntry } from './components/main_menu';
 import Sidebar from './components/sidebar';
@@ -58,52 +57,6 @@ const App = () => {
   //   console.log('Sending Email', msgData)
 
   // }
-
-  // const initialFormFields = {
-  //   title: '',
-  //   img: '',
-  //   altText: '',
-  //   description: '',
-  //   url: ''
-  // }
-
-
-  // const [formFields, setFormFields] = useState(initialFormFields)
-  // const [projects, setProjects] = useState<ProjectProps[]>([]);
-
-  // const onFormFieldChange = (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
-  //   const newFormData = {
-  //       ...formFields 
-  //   };
-
-  //   switch (event.currentTarget.name) {
-  //       case 'title': 
-  //       case 'img':
-  //       case 'altText':
-  //       case 'description':
-  //       case 'url': 
-  //           newFormData[event.currentTarget.name] = event.currentTarget.value;
-  //   }
-
-  //   setFormFields(newFormData); 
-  // };
-
-  // const onFormSubmit = (event: FormEvent) => {
-  //   event.preventDefault();
-
-  //   const newProject = {
-  //     title: formFields.title,
-  //     img: formFields.img,
-  //     altText: formFields.altText,
-  //     description: formFields.description,
-  //     url: formFields.url
-  //   }
-
-  //   const projectsList = [...projects, newProject]
-    
-  //   setProjects(projectsList);
-  //   setFormFields(initialFormFields);
-  // };
 
   return (
     <div className="App">
