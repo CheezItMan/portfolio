@@ -1,5 +1,5 @@
 import './App.scss';
-import React, { useState, FormEvent } from 'react';
+// import React, { useState, FormEvent } from 'react';
 import Avatar from './components/avatar';
 import MainMenu, { LinkEntry } from './components/main_menu';
 import Sidebar from './components/sidebar';
@@ -59,51 +59,51 @@ const App = () => {
 
   // }
 
-  const initialFormFields = {
-    title: '',
-    img: '',
-    altText: '',
-    description: '',
-    url: ''
-  }
+  // const initialFormFields = {
+  //   title: '',
+  //   img: '',
+  //   altText: '',
+  //   description: '',
+  //   url: ''
+  // }
 
 
-  const [formFields, setFormFields] = useState(initialFormFields)
-  const [projects, setProjects] = useState<ProjectProps[]>([]);
+  // const [formFields, setFormFields] = useState(initialFormFields)
+  // const [projects, setProjects] = useState<ProjectProps[]>([]);
 
-  const onFormFieldChange = (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newFormData = {
-        ...formFields 
-    };
+  // const onFormFieldChange = (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+  //   const newFormData = {
+  //       ...formFields 
+  //   };
 
-    switch (event.currentTarget.name) {
-        case 'title': 
-        case 'img':
-        case 'altText':
-        case 'description':
-        case 'url': 
-            newFormData[event.currentTarget.name] = event.currentTarget.value;
-    }
+  //   switch (event.currentTarget.name) {
+  //       case 'title': 
+  //       case 'img':
+  //       case 'altText':
+  //       case 'description':
+  //       case 'url': 
+  //           newFormData[event.currentTarget.name] = event.currentTarget.value;
+  //   }
 
-    setFormFields(newFormData); 
-  };
+  //   setFormFields(newFormData); 
+  // };
 
-  const onFormSubmit = (event: FormEvent) => {
-    event.preventDefault();
+  // const onFormSubmit = (event: FormEvent) => {
+  //   event.preventDefault();
 
-    const newProject = {
-      title: formFields.title,
-      img: formFields.img,
-      altText: formFields.altText,
-      description: formFields.description,
-      url: formFields.url
-    }
+  //   const newProject = {
+  //     title: formFields.title,
+  //     img: formFields.img,
+  //     altText: formFields.altText,
+  //     description: formFields.description,
+  //     url: formFields.url
+  //   }
 
-    const projectsList = [...projects, newProject]
+  //   const projectsList = [...projects, newProject]
     
-    setProjects(projectsList);
-    setFormFields(initialFormFields);
-  };
+  //   setProjects(projectsList);
+  //   setFormFields(initialFormFields);
+  // };
 
   return (
     <div className="App">
@@ -117,7 +117,7 @@ const App = () => {
       <div className="content">
         <Splash name={name} skills={skills} />
         <About />
-        <Portfolio onFormSubmit={onFormSubmit} onFormFieldChange={onFormFieldChange} formFields={formFields} projects={projects} />
+        <Portfolio />
         <Contact onSendMsg={sendEmail}
       />
       </div>

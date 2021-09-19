@@ -1,23 +1,70 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useState } from 'react';
 import './portfolio.css'
 import Card from './card';
 import AddProjectForm from './addprojectform';
 import { ProjectProps } from '../App';
 
-type PortfolioProps = {
-    onFormSubmit: (event: FormEvent) => void,
-    onFormFieldChange: (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void,
-    formFields: {
-        img: string,
-        altText: string,
-        title: string, 
-        description: string,
-        url: string
-    },
-    projects: ProjectProps[]
-}
+// type PortfolioProps = {
+//     onFormSubmit: (event: FormEvent) => void,
+//     onFormFieldChange: (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void,
+//     formFields: {
+//         img: string,
+//         altText: string,
+//         title: string, 
+//         description: string,
+//         url: string
+//     },
+//     projects: ProjectProps[]
+// }
 
-const Portfolio: React.FC<PortfolioProps> = ({ onFormSubmit, onFormFieldChange, formFields, projects }: PortfolioProps) => {
+// const Portfolio: React.FC<PortfolioProps> = ({ projects }: PortfolioProps) => {
+const Portfolio: React.FC = () => {
+    const initialFormFields = {
+        title: '',
+        img: '',
+        altText: '',
+        description: '',
+        url: ''
+    }
+    
+    
+    const [formFields, setFormFields] = useState(initialFormFields)
+    const [projects, setProjects] = useState<ProjectProps[]>([]);
+
+    const onFormFieldChange = (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+        const newFormData = {
+            ...formFields 
+        };
+    
+        switch (event.currentTarget.name) {
+            case 'title': 
+            case 'img':
+            case 'altText':
+            case 'description':
+            case 'url': 
+                newFormData[event.currentTarget.name] = event.currentTarget.value;
+        }
+    
+        setFormFields(newFormData); 
+    };
+    
+    const onFormSubmit = (event: FormEvent) => {
+        event.preventDefault();
+    
+        const newProject = {
+            title: formFields.title,
+            img: formFields.img,
+            altText: formFields.altText,
+            description: formFields.description,
+            url: formFields.url
+        }
+    
+        const projectsList = [...projects, newProject]
+        
+        setProjects(projectsList);
+        setFormFields(initialFormFields);
+    };
+
     return(
         <React.Fragment>
             <div className="background">
