@@ -7,6 +7,7 @@ import Contact from './components/contact';
 import Splash from './components/splash';
 import About from './components/about';
 import Portfolio from './components/portfolio';
+import { sendEmail } from './utilities/send_email';
 
 const owner = 'Bozo the Clown'
 const avatarPic = 'http://placekitten.com/120/120';
@@ -39,14 +40,7 @@ const menuLinks: LinkEntry[] = [
 const name = 'Bob Hope'
 const skills = ['developer', 'designer', 'freelancer', 'photographer']
 
-// lat: 41.8781, lng: -87.6298
 const App = () => {
-
-  // const sendEmail = (msgData: MessageData) => {
-  //   console.log('Sending Email', msgData)
-
-  // }
-
   return (
     <div className="App">
       <div className="sidebar">
@@ -59,14 +53,7 @@ const App = () => {
         <Splash name={name} skills={skills} />
         <About />
         <Portfolio />
-        <Contact 
-        name="Bob Hope" 
-        email="bob@hope.com"  
-        lon={-87.6298}
-        lat={41.8781}
-        city="Chicago"
-        state="Il"
-        // onSendMsg={sendEmail}
+        <Contact onSendMsg={sendEmail}
       />
       </div>
     </div>
