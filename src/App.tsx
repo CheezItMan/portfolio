@@ -43,6 +43,14 @@ const twitterUrl = 'https://twitter.com'
 const linkedinUrl = 'https://linkedin.com'
 const githubUrl = 'https://github.com'
 
+export type ProjectProps = {
+  title: string,
+  img: string,
+  altText: string, 
+  description: string,
+  url: string
+}
+
 // lat: 41.8781, lng: -87.6298
 const App = () => {
 
@@ -59,7 +67,10 @@ const App = () => {
     url: ''
   }
 
+
+
   const [formFields, setFormFields] = useState(initialFormFields)
+  const [projects, setProjects] = useState<ProjectProps[]>([]);
 
   const onFormFieldChange = (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
     const newFormData = {
@@ -80,7 +91,18 @@ const App = () => {
 
   const onFormSubmit = (event: FormEvent) => {
     event.preventDefault();
+
+    const newProject = {
+      title: formFields.title,
+      img: formFields.img,
+      altText: formFields.altText,
+      description: formFields.description,
+      url: formFields.url
+    }
+
+    const projectsList = [...projects, newProject]
     
+    setProjects(projectsList);
     setFormFields(initialFormFields);
   };
 
@@ -96,7 +118,7 @@ const App = () => {
       <div className="content">
         <Splash name={name} skills={skills} />
         <About />
-        <Portfolio onFormSubmit={onFormSubmit} onFormFieldChange={onFormFieldChange} formFields={formFields} />
+        <Portfolio onFormSubmit={onFormSubmit} onFormFieldChange={onFormFieldChange} formFields={formFields} projects={projects} />
         <Contact 
         name="Bob Hope" 
         email="bob@hope.com"  
