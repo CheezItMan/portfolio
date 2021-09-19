@@ -1,0 +1,13 @@
+.portfolio__add__project__form {
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    padding: 30px;
+}
+
+.portfolio__add__project__form__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

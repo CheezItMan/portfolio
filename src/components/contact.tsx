@@ -148,7 +148,6 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
                     </form>
                 </section>
             </div>
-
         </article>
     );
 }
