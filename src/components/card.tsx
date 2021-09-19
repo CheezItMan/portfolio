@@ -13,9 +13,9 @@ const Card: React.FC<CardProps> = ({ img, altText, title, description, url }: Ca
     return(
         <div className="col d-flex justify-content-center">
             <div className="card m-4 min-vw-50">
-                <a href={url}><img src={img} className="card-img-top" alt={altText} /></a>
+                <a href={url} target="_blank" rel="noreferrer"><img src={img} className="card-img-top" alt={altText} /></a>
                 <div className="card-body">
-                    <a href={url}><h5 className="card-title">{title}</h5></a>
+                    <a href={url} target="_blank" rel="noreferrer"><h5 className="card-title">{title} <i className="fas fa-external-link-alt"></i></h5></a>
                     <p className="card-text">{description}</p>
                 </div>
             </div>
