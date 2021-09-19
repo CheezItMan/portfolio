@@ -4,7 +4,7 @@ import './about.css'
 
 const About: React.FC = () => {
     return(
-        <div className="portfolio__about">
+        <div className="portfolio__about" id="about">
             <div className="about-intro">
                 <h2>About</h2>
                 <p className="italic">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>

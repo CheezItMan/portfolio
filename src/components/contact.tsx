@@ -56,7 +56,7 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
     }
 
     return (
-        <article className="portfolio__contact container">
+        <article className="portfolio__contact container" id="contact">
             <div className="row">
                 <div className="section-title md-12 mb-5">
                 <h2>Contact</h2>
