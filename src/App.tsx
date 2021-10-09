@@ -41,7 +41,6 @@ const menuLinks: LinkEntry[] = [
     active: false,
   },
 ]
-const name = 'Bob Hope'
 const skills = ['developer', 'designer', 'freelancer', 'photographer']
 const twitterUrl = 'https://twitter.com'
 const linkedinUrl = 'https://linkedin.com'
