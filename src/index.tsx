@@ -2,12 +2,19 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import FirebaseAppProvider from './firebase-auth/Firebase_app_provider';
+import { firebaseConfig } from './config/firebase-config';
+import App from './App';
+import { FirebaseUserProvider } from './firebase-auth/Firebase_user_provider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FirebaseAppProvider config={firebaseConfig} name="portfolio" >
+      <FirebaseUserProvider config={firebaseConfig} name="portfolio">
+        <App />
+      </FirebaseUserProvider>
+    </FirebaseAppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
