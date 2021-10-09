@@ -1,5 +1,4 @@
 import React from "react";
-
 import './main_menu.css';
 
 export type LinkEntry = {
@@ -8,12 +7,12 @@ export type LinkEntry = {
     url: string,
     active: boolean | undefined,
 }
+
 type MainMenuProps = {
     links: LinkEntry[]
 }
 
 const MainMenu: React.FC<MainMenuProps> = (props: MainMenuProps) => {
-    // TODO:  Add key prop
    const linksJSX: JSX.Element[] = props.links.map(link => {
         return( 
         <li key={link.url}>
