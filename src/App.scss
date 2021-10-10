@@ -39,7 +39,7 @@ h2 {
   overflow-y: auto;
 }
 
-@media only screen and (min-width : 555px) {
+@media only screen and (min-width : 850px) {
   .portfolio__sidebar {
       height: 100vh;
       position: fixed;
@@ -84,7 +84,7 @@ html {
   flex-grow: 2;
 }
 
-@media only screen and (min-width : 555px) {
+@media only screen and (min-width : 850px) {
   .content {
     margin-left: 400px;
   }
