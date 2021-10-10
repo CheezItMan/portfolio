@@ -19,25 +19,25 @@ const menuLinks: LinkEntry[] = [
   {
     icon: "fas fa-home",
     text: "Home",
-    url: "https://cheezitman.github.io/portfolio",
+    url: "#home",
     active: true,
   },
   {
     icon: "fas fa-portrait",
     text: "About",
-    url: "https://cheezitman.github.io/portfolio/about",
+    url: "#about",
     active: false,
   },
   {
     icon: "fa fa-code",
     text: "Portfolio",
-    url: "https://cheezitman.github.io/portfolio/portfolio",
+    url: "#portfolio",
     active: false,
   },
   {
     icon: "fa fa-envelope",
     text: "Contact",
-    url: "https://cheezitman.github.io/portfolio/contact",
+    url: "#contact",
     active: false,
   },
 ]
@@ -67,7 +67,7 @@ const App = () => {
 
   
   return (
-    <div className="App">
+    <div className="App" id="home">
       <div className="sidebar">
         <Sidebar>
             <Avatar owner={owner} avatarPic={avatarPic} twitterUrl={twitterUrl} linkedinUrl={linkedinUrl} githubUrl={githubUrl} />
