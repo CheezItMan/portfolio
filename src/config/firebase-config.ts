@@ -1,4 +1,4 @@
-import { FireBaseConfigType } from '../types/firebase-config';
+import { FireBaseConfigType } from '../config/firebase_config_type';
 
 export const firebaseConfig: FireBaseConfigType = {
   apiKey: "AIzaSyCXg1SFtrXu6fPWPJ5HDtu6r6EG3DUeSeE",

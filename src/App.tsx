@@ -72,7 +72,7 @@ const App = () => {
         <Sidebar>
             <Avatar owner={owner} avatarPic={avatarPic} twitterUrl={twitterUrl} linkedinUrl={linkedinUrl} githubUrl={githubUrl} />
             <MainMenu links={menuLinks} />
-            <LoginWithGithubButton text = "Github Login" />
+            <LoginWithGithubButton text = "Github Login" styling="button button--social-login button--github" />
             <Footer />
         </Sidebar>
       </div>

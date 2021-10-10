@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FireBaseConfigType } from '../types/firebase-config';
+import { FireBaseConfigType } from '../config/firebase_config_type';
 import { initializeApp, getApps } from 'firebase/app';
 
 const useFirebase = (config: FireBaseConfigType, name: string) => {

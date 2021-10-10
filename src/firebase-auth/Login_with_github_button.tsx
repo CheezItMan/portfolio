@@ -3,6 +3,7 @@ import { useUser } from './useFirebaseAuth';
 import {LoginStatus } from './login_status';
 import {firebaseAppContext} from './Firebase_app_provider';
 import { getAuth, GithubAuthProvider, signInWithRedirect, getRedirectResult, signOut } from 'firebase/auth';
+import './login_with_github_button.css';
 
 
 const provider = new GithubAuthProvider();
@@ -10,9 +11,10 @@ provider.addScope('user:email');
 
 export type LoginWithGithubProps = {
   text: string,
+  styling: string
 }
 
-export const LoginWithGithubButton = ( { text = "Login with Github", ...otherProps }: LoginWithGithubProps) => {
+export const LoginWithGithubButton = ( { text = "Login with Github", styling }: LoginWithGithubProps) => {
   const [ , setUser, status ] = useUser();
   // const userContext = useContext(firebaseUserContext);
 
@@ -113,9 +115,9 @@ export const LoginWithGithubButton = ( { text = "Login with Github", ...otherPro
   }
 
   if (status === LoginStatus.LoggedIn) {
-    return <button {...otherProps} onClick={handleLogout}>Logout</button>
+    return <button className={styling}  onClick={handleLogout}><i className="icon fa fa-github"></i>Logout</button>
   } else if (status === LoginStatus.LoggedOut) {
-    return <button {...otherProps} onClick={handleLogin}>Login with Github</button>
+    return <button className={styling}  onClick={handleLogin}><i className="icon fa fa-github"></i>Login with Github</button>
   } else {
     return <div>Pending...</div>
   }

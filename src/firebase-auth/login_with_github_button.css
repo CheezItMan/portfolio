@@ -1,0 +1,67 @@
+$social-list: (
+    facebook #4b70ab,
+    linkedin #0087be,
+    google #3F85F4,
+    twitter #3B94D9,
+    yahoo #500095,
+    openid #F78C40,
+    googleplus #DD4B39,
+    dropbox #007DE1,
+    github #333,
+    bitbucket #205081,
+    soundcloud #FF5500,
+    spotify #2EBD59,
+    microsoft #00A4EF,
+    flickr #FF0084
+);
+
+.button--github {
+    background-color: #333;
+    border: 1px solid #1a1a1a;
+}
+
+.button--social-login {
+    margin-bottom: 12px;
+    margin-right: 12px;
+    color: white;
+    height: 50px;
+    line-height: 46px;
+    position: relative;
+    text-align: left;
+}
+
+.button {
+    width: auto;
+    display: inline-block;
+    padding: 0 18px 0 6px;
+    border: 0 none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 250ms linear;
+}
+
+.button--github .icon {
+    border-right: 1px solid #1a1a1a;
+}
+
+.button--social-login .icon {
+    margin-right: 12px;
+    font-size: 24px;
+    line-height: 24px;
+    width: 42px;
+    height: 24px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+}

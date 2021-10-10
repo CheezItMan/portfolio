@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FireBaseConfigType } from '../types/firebase-config';
+import { FireBaseConfigType } from '../config/firebase_config_type';
 import { firebaseUserContext } from './useFirebaseAuth';
 import { LoginStatus } from './login_status';
 import { FirebaseUserStateType } from './firebase_user_state';

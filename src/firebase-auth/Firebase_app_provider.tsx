@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 import firebase from 'firebase/app';
 import useFirebase from './useFirebase';
-import { FireBaseConfigType } from '../types/firebase-config';
+import { FireBaseConfigType } from '../config/firebase_config_type';
 
 type FirebaseAppProviderProps = {
     config: FireBaseConfigType,
