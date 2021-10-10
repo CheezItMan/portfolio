@@ -8,6 +8,10 @@ import About from './components/about';
 import Portfolio from './components/portfolio';
 import Footer from './components/footer'; 
 import { sendEmail } from './utilities/send_email';
+import { useUser } from './firebase-auth/useFirebaseAuth';
+import { LoginWithGoogleButton } from './firebase-auth/LoginWithGoogleButton';
+import { LoginStatus } from './firebase-auth/login_status';
+import { LoginWithGithubButton } from './firebase-auth/Login_with_github_button';
 
 const owner = 'Bozo the Clown'
 const avatarPic = 'http://placekitten.com/120/120';
@@ -37,7 +41,6 @@ const menuLinks: LinkEntry[] = [
     active: false,
   },
 ]
-const name = 'Bob Hope'
 const skills = ['developer', 'designer', 'freelancer', 'photographer']
 const twitterUrl = 'https://twitter.com'
 const linkedinUrl = 'https://linkedin.com'
@@ -52,18 +55,24 @@ export type ProjectProps = {
 }
 
 const App = () => {
+  const [user, , status] = useUser();
 
-  // const sendEmail = (msgData: MessageData) => {
-  //   console.log('Sending Email', msgData)
+  const name = user && user.displayName ? user.displayName : 'Logged Out';
+  let statusMessage = 'Logged in';
+  if (status === LoginStatus.LoggedOut) {
+    statusMessage = 'Logged Out!'
+  } else if (status === LoginStatus.Pending) {
+    statusMessage = 'Pending...';
+  }
 
-  // }
-
+  
   return (
     <div className="App" id="home">
       <div className="sidebar">
         <Sidebar>
             <Avatar owner={owner} avatarPic={avatarPic} twitterUrl={twitterUrl} linkedinUrl={linkedinUrl} githubUrl={githubUrl} />
             <MainMenu links={menuLinks} />
+            <LoginWithGithubButton text = "Github Login" styling="button button--social-login button--github" />
             <Footer />
         </Sidebar>
       </div>
