@@ -1,20 +1,3 @@
-$social-list: (
-    facebook #4b70ab,
-    linkedin #0087be,
-    google #3F85F4,
-    twitter #3B94D9,
-    yahoo #500095,
-    openid #F78C40,
-    googleplus #DD4B39,
-    dropbox #007DE1,
-    github #333,
-    bitbucket #205081,
-    soundcloud #FF5500,
-    spotify #2EBD59,
-    microsoft #00A4EF,
-    flickr #FF0084
-);
-
 .button--github {
     background-color: #333;
     border: 1px solid #1a1a1a;
