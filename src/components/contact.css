@@ -12,7 +12,7 @@
     background: #149ddd;
     bottom: 0;
     left: 0;
-  }
+}
 
 .portfolio__contact h2 {
     font-size: 32px;
@@ -36,4 +36,13 @@
     width: 100%;
     padding: 30px;
     background: #fff;
+}
+
+.map {
+    max-height: 400px;
+};
+
+.map-container {
+    max-width: min-content;
+    padding-right: 3rem;
 }

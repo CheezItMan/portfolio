@@ -1,6 +1,8 @@
 import React, { useState, FormEvent } from 'react';
 import { MessageData } from '../types/message_data.type';
 import './contact.css';
+import GoogleMapReact from 'google-map-react';
+// import Marker from './marker';
 
 type ContactProps = {
     onSendMsg: (msg: MessageData) => void,
@@ -55,27 +57,62 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
         });
     }
 
+    type GoogleMapsProps = {
+        lat: number,
+        lng: number,
+        text: string
+    }
+
+    const Marker = ({ text }: GoogleMapsProps) => <div><i className="fas fa-map-marker-alt"></i>{text}</div>;
+
+    const defaultProps = {
+        center: {
+            lat: 47.608013,
+            lng: -122.335167
+        },
+        zoom: 11
+    };
+
     return (
         <article className="portfolio__contact container" id="contact">
             <div className="row">
                 <div className="section-title md-12 mb-5">
-                <h2>Contact</h2>
-                { notification !== ''? <h3 className="alert">{notification}</h3>: ''}
-                <p>
-                    Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
-                </p>
+                    <h2>Contact</h2>
+                    { notification !== ''? <h3 className="alert">{notification}</h3>: ''}
+                    <p>
+                        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+                    </p>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-lg-5 col-md-6 col-sm-12 d-flex align-items-stretch">
-                    <section className="col-lg-3 p-2">
-                        <p>Map data goes here</p>
+            <div className="row align-items-center">
+                <div className="col-xs-12 col-xl-6 d-flex align-items-stretch map-container" style={{maxWidth: "min-content", paddingRight: "3rem"}}>
+                    <section className="col-xs-12 col-xl-6 d-flex shadow-lg p-3 mb-5 bg-white rounded card" style={{minWidth: "400px", paddingRight: "3rem"}}>
+                        <div className="card-body">
+                            <h4 className="card-text"><i className="fas fa-envelope" style={{marginRight: '5px', fontSize: '24px', color: "#109DDC"}}></i>Email</h4>
+                            <p>email@email.com</p>
+                            <h4 className="card-text"><i className="fas fa-map-marker-alt" style={{marginRight: '5px',  fontSize: '24px', color: "#109DDC"}}></i>Location</h4>
+                            <p>Seattle, WA</p>
+                            <div style={{ height: '100vh', width: '100%'}} className="map">
+                                <GoogleMapReact
+                                    bootstrapURLKeys={ {key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY} }
+                                    defaultCenter={defaultProps.center}
+                                    defaultZoom={defaultProps.zoom}
+                                >
+                                    <Marker
+                                        lat={47.608013}
+                                        lng={-122.335167}
+                                        text=""
+                                    />
+                                    {/* <Marker /> */}
+                                </GoogleMapReact>
+                            </div>
+                        </div>
                     </section>
                 </div>
-                <section className="portfolio__contact__contact__form_block col-lg-6 col-md-6 d-flex shadow-lg p-3 mb-5 bg-white rounded">
+                <section className="portfolio__contact__contact__form_block col-xs-12 col-xl-6 d-flex shadow-lg p-3 mb-5 bg-white rounded">
                     <form className="portfolio__contact__form container" onSubmit={onSubmit}>
                     <div className="row d-flex">
-                        <div className="form-group col-md-6 col-sm-12 p-2">
+                        <div className="form-group col-xl-6 col-xs-12 p-2">
                             <label htmlFor="name">Your Name</label>
                             <input 
                                 type="text" 
@@ -90,7 +127,7 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
                             />
                             <div className="validate"></div>
                         </div>
-                        <div className="form-group col-md-6 col-sm-12 p-2">
+                        <div className="form-group col-xl-6 col-xs-12 p-2">
                         <label htmlFor="email">Your Email</label>
                         <input 
                             type="email" 
@@ -107,7 +144,7 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
                         </div>
                     </div>
                     <div className="row d-flex">
-                        <div className="form-group col-md-12 col-sm-12">
+                        <div className="form-group col-xs-12">
                             <label htmlFor="subject">Subject</label>
                             <input 
                                 type="text" 
@@ -122,8 +159,8 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
                             <div className="validate"></div>
                         </div>
                     </div>
-                    <div className="row col-medium-12 d-flex align-items-stretch">
-                        <div className="form-group col-md-12">
+                    <div className="row col-xs-12 d-flex align-items-stretch">
+                        <div className="form-group col-xs-12">
                             <label htmlFor="message">Message</label>
                             <textarea 
                                 className="form-control" 
@@ -134,14 +171,13 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
                                 data-rule="required" 
                                 data-msg="Please write something for us"
                                 onChange={updateField}
-                                value={formData.message}
-                            ></textarea>
+                                value={formData.message} >
+                            </textarea>
                             <div className="validate"></div>
                         </div>
-
                     </div>
-                    <div className="form-row col-medium-12 d-flex align-items-stretch pt-5">
-                        <div className="form-group col-md-12">
+                    <div className="form-row col-xs-12 d-flex align-items-stretch pt-5">
+                        <div className="form-group col-xs-12">
                             <button onClick={onSubmit} className="btn btn-primary btn-md">Send Email</button>
                         </div>
                     </div>                                
