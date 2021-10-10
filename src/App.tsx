@@ -71,11 +71,7 @@ const App = () => {
       <div className="sidebar">
         <Sidebar>
             <Avatar owner={owner} avatarPic={avatarPic} twitterUrl={twitterUrl} linkedinUrl={linkedinUrl} githubUrl={githubUrl} />
-            <p>{name}</p>
-            <p>{statusMessage}</p>
-
             <MainMenu links={menuLinks} />
-            <LoginWithGoogleButton text="Login with Google!" />
             <LoginWithGithubButton text = "Github Login" />
             <Footer />
         </Sidebar>

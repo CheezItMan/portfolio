@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { useUser } from './useFirebaseAuth';
+import { useUser } from './use_firebase_auth';
 import {LoginStatus } from './login_status';
 import {firebaseAppContext} from './Firebase_app_provider';
 import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signOut } from 'firebase/auth';
