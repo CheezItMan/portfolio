@@ -1,6 +1,5 @@
 import React, { FormEvent, useState } from 'react';
 import './addprojectform.css';
-import { ProjectProps } from '../App';
 import { ProjectInterface  } from './portfolio';
 
 
