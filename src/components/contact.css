@@ -43,6 +43,6 @@
 };
 
 .map-container {
-    max-width: min-content;
-    padding-right: 3rem;
+    /* max-width: min-content; */
+    /* padding-right: 4rem; */
 }

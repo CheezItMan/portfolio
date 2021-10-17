@@ -85,8 +85,8 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
                 </div>
             </div>
             <div className="row align-items-center">
-                <div className="col-xs-12 col-xl-6 d-flex align-items-stretch map-container" style={{maxWidth: "min-content", paddingRight: "3rem"}}>
-                    <section className="col-xs-12 col-xl-6 d-flex shadow-lg p-3 mb-5 bg-white rounded card" style={{minWidth: "400px", paddingRight: "3rem"}}>
+                <div className="col-xs-12 col-xl-6 d-flex align-items-stretch map-container" style={{maxWidth: "35vw"}}>
+                    <section className="col-xs-12 col-xl-6 d-flex shadow-lg p-3 mb-5 bg-white rounded card">
                         <div className="card-body">
                             <h4 className="card-text"><i className="fas fa-envelope" style={{marginRight: '5px', fontSize: '24px', color: "#109DDC"}}></i>Email</h4>
                             <p>email@email.com</p>
