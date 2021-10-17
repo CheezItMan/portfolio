@@ -9,8 +9,6 @@ import Portfolio from './components/portfolio';
 import Footer from './components/footer'; 
 import { sendEmail } from './utilities/send_email';
 import { useUser } from './firebase-auth/useFirebaseAuth';
-import { LoginWithGoogleButton } from './firebase-auth/LoginWithGoogleButton';
-import { LoginStatus } from './firebase-auth/LoginStatusType';
 import { LoginWithGithubButton } from './firebase-auth/LoginWithGithubButton';
 
 const owner = 'Bozo the Clown'
@@ -55,16 +53,9 @@ export type ProjectProps = {
 }
 
 const App = () => {
-  const [user, , status] = useUser();
+  const [user] = useUser();
 
   const name = user && user.displayName ? user.displayName : 'Logged Out';
-  let statusMessage = 'Logged in';
-  if (status === LoginStatus.LoggedOut) {
-    statusMessage = 'Logged Out!'
-  } else if (status === LoginStatus.Pending) {
-    statusMessage = 'Pending...';
-  }
-
   
   return (
     <div className="App" id="home">
