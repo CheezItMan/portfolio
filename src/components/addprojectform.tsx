@@ -1,13 +1,15 @@
 import React, { FormEvent, useState } from 'react';
 import './addprojectform.css';
 import { ProjectProps } from '../App';
+import { ProjectInterface  } from './portfolio';
+
 
 type AddProjectProps = {
-    projects: ProjectProps[]
-    updateProjects: (projects: ProjectProps[]) => void
+    addProject: (project: ProjectInterface) => void,
 }
 
-const AddProjectForm: React.FC<AddProjectProps> = ({ updateProjects, projects }: AddProjectProps) => {
+const AddProjectForm: React.FC<AddProjectProps> = ({ addProject }: AddProjectProps) => {
+    
     const initialFormFields = {
         title: '',
         img: '',
