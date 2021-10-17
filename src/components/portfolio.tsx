@@ -1,8 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import './portfolio.css'
-import Card from './card';
-import AddProjectForm from './addprojectform';
-import { ProjectProps } from '../App';
+import Card from './Card';
+import AddProjectForm from './AddProjectForm';
+import { useUser } from '../firebase-auth/useFirebaseAuth';
+import useFirebase from '../firebase-auth/useFirebase';
+import { firebaseConfig } from '../config/firebase-config';
+import { collection, getDocs, query, addDoc, deleteDoc, doc } from 'firebase/firestore';
+
+export interface ProjectInterface {
+    id?: string,
+    altText: string,
+    description: string,
+    img: string,
+    title: string,
+    url: string,
+}
 
 const Portfolio: React.FC = () => {
     const [projects, setProjects] = useState<ProjectProps[]>([]);
