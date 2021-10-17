@@ -49,9 +49,8 @@ const AddProjectForm: React.FC<AddProjectProps> = ({ addProject }: AddProjectPro
             url: formFields.url
         }
     
-        const projectsList = [...projects, newProject]
+        addProject(newProject);
         
-        updateProjects(projectsList);
         setFormFields(initialFormFields);
     };
 
