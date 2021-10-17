@@ -10,8 +10,8 @@ import Footer from './components/footer';
 import { sendEmail } from './utilities/send_email';
 import { useUser } from './firebase-auth/useFirebaseAuth';
 import { LoginWithGoogleButton } from './firebase-auth/LoginWithGoogleButton';
-import { LoginStatus } from './firebase-auth/login_status';
-import { LoginWithGithubButton } from './firebase-auth/Login_with_github_button';
+import { LoginStatus } from './firebase-auth/LoginStatusType';
+import { LoginWithGithubButton } from './firebase-auth/LoginWithGithubButton';
 
 const owner = 'Bozo the Clown'
 const avatarPic = 'http://placekitten.com/120/120';
