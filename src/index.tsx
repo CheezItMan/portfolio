@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import FirebaseAppProvider from './firebase-auth/Firebase_app_provider';
+import FirebaseAppProvider from './firebase-auth/firebaseAppProvider';
 import { firebaseConfig } from './config/firebase-config';
 import App from './App';
 import { FirebaseUserProvider } from './firebase-auth/Firebase_user_provider';
