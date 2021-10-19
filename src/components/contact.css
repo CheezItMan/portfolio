@@ -42,7 +42,27 @@
     max-height: 400px;
 };
 
-.map-container {
+/* .map-container {
+    @media @include media-breakpoint-down(sm) {
+        .card {
+            min-width: 70vw;
+        }
+    } */
+    /* @media (min-width: 576px) { 
+        min-width: 70vw;
+    } */
+/* } */
     /* max-width: min-content; */
     /* padding-right: 4rem; */
+
+@media screen and (max-width: 991.98px) { 
+    .card {
+        min-width: 70vw;
+    }
 }
+
+/* @include media-breakpoint-down(md) {
+    .test {
+        min-width: 70vw;
+    }
+}  */

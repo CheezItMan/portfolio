@@ -85,8 +85,8 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
                 </div>
             </div>
             <div className="row align-items-center">
-                <div className="col-xs-12 col-xl-6 d-flex align-items-stretch map-container" style={{maxWidth: "35vw"}}>
-                    <section className="col-xs-12 col-xl-6 d-flex shadow-lg p-3 mb-5 bg-white rounded card">
+                <div className="col-xs-12 d-flex align-items-stretch map-container" style={{maxWidth: "35vw"}} >
+                    <section className="col-xs-12 d-flex shadow-lg p-3 mb-5 bg-white rounded card">
                         <div className="card-body">
                             <h4 className="card-text"><i className="fas fa-envelope" style={{marginRight: '5px', fontSize: '24px', color: "#109DDC"}}></i>Email</h4>
                             <p>email@email.com</p>
@@ -109,7 +109,7 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
                         </div>
                     </section>
                 </div>
-                <section className="portfolio__contact__contact__form_block col-xs-12 col-xl-6 d-flex shadow-lg p-3 mb-5 bg-white rounded" style={{maxWidth: "90vw"}}>
+                <section className="portfolio__contact__contact__form_block col-xs-12 col-lg-6 d-flex shadow-lg p-3 mb-5 bg-white rounded" style={{maxWidth: "90vw"}}>
                     <form className="portfolio__contact__form container" onSubmit={onSubmit}>
                     <div className="row d-flex">
                         <div className="form-group col-xl-6 col-xs-12 p-2">
