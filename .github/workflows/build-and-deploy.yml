@@ -15,7 +15,7 @@ jobs:
       - name: Install and Test
         run: |
           yarn install
-          yarn test
+          CI=true yarn test 
       - name: Build
         run: |
           yarn build
