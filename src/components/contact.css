@@ -40,9 +40,22 @@
 
 .map {
     max-height: 400px;
-};
+}
 
-.map-container {
-    max-width: min-content;
-    padding-right: 3rem;
+#contact-text {
+    margin-right: 1rem;
+}
+
+#map-container {
+    max-width: 35vw;
+}
+
+#form-container {
+    max-width: 90vw;
+}
+
+.react-icon {
+    margin-right: 5px;
+    font-size: 24px !important;
+    color: #109DDC;
 }
