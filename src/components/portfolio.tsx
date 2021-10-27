@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './portfolio.css'
-import Card from './Card';
+import Card from './card';
 import {AddProjectForm, ProjectData} from './AddProjectForm';
 import { useUser } from '../firebase-auth/useFirebaseAuth';
 import useFirebase from '../firebase-auth/useFirebase';
