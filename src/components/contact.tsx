@@ -79,18 +79,18 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
                 <div className="section-title md-12 mb-5">
                     <h2>Contact</h2>
                     { notification !== ''? <h3 className="alert">{notification}</h3>: ''}
-                    <p>
+                    <p id="contact-text">
                         Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
                     </p>
                 </div>
             </div>
             <div className="row align-items-center">
-                <div className="col-xs-12 d-flex align-items-stretch map-container" style={{maxWidth: "35vw"}} >
+                <div className="col-xs-12 d-flex align-items-stretch" id="map-container">
                     <section className="col-xs-12 d-flex shadow-lg p-3 mb-5 bg-white rounded card">
                         <div className="card-body">
-                            <h4 className="card-text"><i className="fas fa-envelope" style={{marginRight: '5px', fontSize: '24px', color: "#109DDC"}}></i>Email</h4>
+                            <h4 className="card-text"><i className="fas fa-envelope" id="envelope-icon"></i>Email</h4>
                             <p>email@email.com</p>
-                            <h4 className="card-text"><i className="fas fa-map-marker-alt" style={{marginRight: '5px',  fontSize: '24px', color: "#109DDC"}}></i>Location</h4>
+                            <h4 className="card-text"><i className="fas fa-map-marker-alt" id="location-icon" style={{marginRight: '5px',  fontSize: '24px', color: "#109DDC"}}></i>Location</h4>
                             <p>Seattle, WA</p>
                             <div style={{ height: '100vh', width: '100%'}} className="map">
                                 <GoogleMapReact
@@ -109,7 +109,7 @@ const Contact: React.FC<ContactProps> = ({onSendMsg }: ContactProps) => {
                         </div>
                     </section>
                 </div>
-                <section className="portfolio__contact__contact__form_block col-xs-12 col-xl-6 d-flex shadow-lg p-3 mb-5 bg-white rounded" style={{maxWidth: "90vw"}}>
+                <section className="portfolio__contact__contact__form_block col-xs-12 col-xl-6 d-flex shadow-lg p-3 mb-5 bg-white rounded" id="form-container">
                     <form className="portfolio__contact__form container" onSubmit={onSubmit}>
                     <div className="row d-flex">
                         <div className="form-group col-xl-6 col-xs-12 p-2">
