@@ -4,28 +4,13 @@ import Contact from './contact';
 
 describe('Contact Form Testing', () => {
     test('loads and displays "Contact"', () => {
-        render(<Contact 
-            name="Charles Barkley"
-            email="charles@nickes.com"
-            lat={3}
-            lon={4}
-            city="Seattle"
-            state="Washington"
-            onSendMsg={() => {} }
-        />);
+        render(<Contact onSendMsg={() => {} } />);
         
-        expect(screen.getByRole('heading')).toHaveTextContent('Contact')
+        expect(screen.getAllByRole('heading')[0]).toHaveTextContent('Contact')
     });
 
     test('User can type into the input fields', () => {
-        render(<Contact 
-            name="Charles Barkley"
-            email="charles@nickes.com"
-            lat={3}
-            lon={4}
-            city="Seattle"
-            state="Washington"
-            onSendMsg={() => {} }
+        render(<Contact onSendMsg={() => {} }
         />);
 
         const fieldLabels = ['Your Name', 'Your Email', 'Subject', 'Message'];
@@ -41,15 +26,7 @@ describe('Contact Form Testing', () => {
 
     test('When submitting the callback function will be called', () => {
         const callBackFunction = jest.fn();
-        render(<Contact 
-            name="Charles Barkley"
-            email="charles@nickes.com"
-            lat={3}
-            lon={4}
-            city="Seattle"
-            state="Washington"
-            onSendMsg={callBackFunction }
-        />);
+        render(<Contact onSendMsg={callBackFunction } />);
 
         const fields = [
             {label: 'Your Name', text: 'bob'}, 
