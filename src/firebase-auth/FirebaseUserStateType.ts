@@ -1,5 +1,5 @@
 import * as firebaseAuth from 'firebase/auth';
-import { LoginStatus } from './login_status';
+import { LoginStatus } from './LoginStatusType';
 
 export interface FirebaseUserStateType {
     user: firebaseAuth.User | null,

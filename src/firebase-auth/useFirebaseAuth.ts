@@ -1,11 +1,8 @@
 
 import { useContext, createContext, Dispatch, SetStateAction } from 'react';
 import {User} from '@firebase/auth-types';
-import "firebase/auth";
-import "firebase/firestore";
-import { LoginStatus } from './login_status';
-import { FirebaseUserStateType } from './firebase_user_state';
-
+import { LoginStatus } from './LoginStatusType';
+import { FirebaseUserStateType } from './FirebaseUserStateType';
 
 export type UserDataType = {
   user: User | null,
