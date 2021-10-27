@@ -1,12 +1,16 @@
 import React from 'react';
 import './footer.css';
-import { FaCopyright } from 'react-icons/fa';
 
-const Footer: React.FC = () => {
+type FooterProps = {
+    name: string;
+}
+
+const Footer: React.FC<FooterProps> = ({ name }: FooterProps) => {
+    const year = new Date().getFullYear()
+
     return(
         <footer className="portfolio__footer">
-            <FaCopyright style={{marginRight: '5px', marginTop: '5px'}}/>
-            <p>Chris McNally & Roshni Patel</p>
+            <i className="fas fa-copyright copyright"><span>{year} {name}</span></i>
         </footer>
     )
 };
