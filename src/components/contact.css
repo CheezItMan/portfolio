@@ -54,19 +54,8 @@
     max-width: 90vw;
 }
 
-i.fa {
+.react-icon {
     margin-right: 5px;
-    font-size: 24px;
-    color: "#109DDC";
+    font-size: 24px !important;
+    color: #109DDC;
 }
-/* #envelope-icon {
-    margin-right: 5px;
-    font-size: 24px;
-    color: "#109DDC";
-}
-
-#location-icon {
-    margin-right: 5px;
-    font-size: 24px;
-    color: "#109DDC";
-} */
