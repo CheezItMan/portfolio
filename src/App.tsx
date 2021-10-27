@@ -10,6 +10,8 @@ import Footer from './components/footer';
 import { sendEmail } from './utilities/send_email';
 import { useUser } from './firebase-auth/useFirebaseAuth';
 import { LoginWithGithubButton } from './firebase-auth/LoginWithGithubButton';
+import { useIsSuperAdmin } from './hooks/isSuperAdmin';
+import { firebaseConfig } from './config/firebase-config';
 
 const owner = 'Bozo the Clown'
 const avatarPic = 'http://placekitten.com/120/120';
@@ -55,6 +57,9 @@ export type ProjectProps = {
 const App = () => {
   const [user] = useUser();
 
+  const isSuperAdmin = useIsSuperAdmin(firebaseConfig);
+  console.log(`isSuperAdmin == ${isSuperAdmin}`);
+
   const name = user && user.displayName ? user.displayName : 'Logged Out';
   
   return (
@@ -70,7 +75,7 @@ const App = () => {
       <div className="content">
         <Splash name={name} skills={skills} />
         <About />
-        <Portfolio />
+        <Portfolio admin={isSuperAdmin} />
         <Contact onSendMsg={sendEmail}
       />
       </div>
