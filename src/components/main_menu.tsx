@@ -13,7 +13,7 @@ type MainMenuProps = {
 }
 
 const MainMenu: React.FC<MainMenuProps> = (props: MainMenuProps) => {
-   const linksJSX: JSX.Element[] = props.links.map(link => {
+    const linksJSX: JSX.Element[] = props.links.map(link => {
         return( 
         <li key={link.url}>
             <a href={link.url} className={ link.active ? 'active': ''}>{ link.icon ? <i className={link.icon}></i> : ''} {link.text}</a>
