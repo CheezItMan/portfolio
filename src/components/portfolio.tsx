@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './portfolio.css'
 import Card from './Card';
-import AddProjectForm from './AddProjectForm';
+import {AddProjectForm, ProjectData} from './AddProjectForm';
 import { useUser } from '../firebase-auth/useFirebaseAuth';
 import useFirebase from '../firebase-auth/useFirebase';
 import { firebaseConfig } from '../config/firebase-config';
-import { collection, getDocs, query, addDoc, deleteDoc, doc } from 'firebase/firestore';
+import { collection, getDocs, query, addDoc, deleteDoc, doc, setDoc } from 'firebase/firestore';
+
 
 export interface ProjectInterface {
-    id?: string,
+    id: string,
     altText: string,
     description: string,
     img: string,
@@ -16,8 +17,22 @@ export interface ProjectInterface {
     url: string,
 }
 
-const Portfolio: React.FC = () => {
+export interface PortfolioProps {
+    admin: boolean
+}
+
+const Portfolio: React.FC<PortfolioProps> = ({ admin }) => {
     const [projects, setProjects] = useState<ProjectInterface[]>([]);
+    const [updateProjectData, setUpdateProjectData] = useState<ProjectData>({
+        id: '',
+        title: '',
+        img: '',
+        altText: '',
+        description: '',
+        url: '',
+    });
+    console.log('updateProjectData')
+    console.log(updateProjectData);
     const [user] = useUser();
     const { db } = useFirebase(firebaseConfig);
 
@@ -29,7 +44,6 @@ const Portfolio: React.FC = () => {
         const loadProjects = async () => {
             try {
                 const snapshot = await getDocs(q);
-                console.log(snapshot);
                 const data: Array<ProjectInterface> = [];
                 snapshot.forEach((doc) => {
                     console.log(doc.data())
@@ -53,7 +67,12 @@ const Portfolio: React.FC = () => {
         loadProjects();
     }, [db]);
 
+    const updateProjectFields = (data: ProjectData) => {
+        setUpdateProjectData(data);
+    }
+
     const addProject = (newProject: ProjectInterface) => {
+        console.log('Add Project', newProject);
 
         const addDocument = async () => {
             if (!db) return;
@@ -77,7 +96,44 @@ const Portfolio: React.FC = () => {
             }
         }
 
-        addDocument();        
+        const updateDocument = async () => {
+            if (!db || !newProject.id) return;
+            console.log('updating document');
+            try {
+                await setDoc(doc(db, 'projects', newProject.id), {
+                    altText: newProject.altText,
+                    description: newProject.description,
+                    img: newProject.img,
+                    title: newProject.title,
+                    url: newProject.url,
+                    id: newProject.id,
+                });
+
+                console.log('Document updated with ID: ', newProject.id);
+                const updatedProjects = projects.map((project) => {
+                    if (project.id === newProject.id) {
+                        return {
+                            id: newProject.id,
+                            altText: newProject.altText,
+                            description: newProject.description,
+                            img: newProject.img,
+                            title: newProject.title,
+                            url: newProject.url,
+                        }
+                    } else {
+                        return project;
+                    }
+                });
+                setProjects(updatedProjects);                
+            } catch (e) {
+                console.error('Error updating document: ', e);
+            }
+        }
+        if (!newProject.id || newProject.id === '') {
+            addDocument();
+        } else {
+            updateDocument();
+        }
     }
 
     const deleteProject = (id: string) => {
@@ -97,6 +153,21 @@ const Portfolio: React.FC = () => {
 
         removeDocFromFirebase();
     }
+
+    const updateProject = (id: string) => {
+        const projectToUpdate = projects.find((project) => project.id === id);
+
+        if (projectToUpdate) {
+            setUpdateProjectData({
+                id: id,
+                title: projectToUpdate.title,
+                altText: projectToUpdate.altText,
+                description: projectToUpdate.description,
+                url: projectToUpdate.url,
+                img: projectToUpdate.img,                
+            });
+        }        
+    }
     
     return(
         <React.Fragment>
@@ -114,7 +185,8 @@ const Portfolio: React.FC = () => {
                                 title={project.title} 
                                 description={project.description} 
                                 url={project.url} 
-                                deleteCallback={deleteProject}
+                                deleteCallback={admin ? deleteProject : undefined}
+                                updateProjectCallback={admin ? updateProject: undefined}
                             />
                         )})
                     }
@@ -127,12 +199,25 @@ const Portfolio: React.FC = () => {
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
-                        <AddProjectForm addProject={addProject} />
+                        <AddProjectForm 
+                            {...updateProjectData}
+                            setProject={addProject}
+                            updateProjectFields={updateProjectFields}
+                        />
                     </div>
                     </div>
                 </div>
                 </div>
-                { user ? <button type="button" className="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fas fa-plus"></i></button> : '' }
+                { user && admin ? 
+                    <button 
+                        type="button" 
+                        className="btn btn-primary ms-2" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#exampleModal"
+                    >
+                        <i className="fas fa-plus"></i>
+                    </button> : 
+                '' }
             </div>
         </React.Fragment>
     )
