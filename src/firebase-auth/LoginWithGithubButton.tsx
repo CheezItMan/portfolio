@@ -1,9 +1,10 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import { useUser } from './useFirebaseAuth';
-import {LoginStatus } from './login_status';
-import {firebaseAppContext} from './Firebase_app_provider';
+import {LoginStatus } from './LoginStatusType';
 import { getAuth, GithubAuthProvider, signInWithRedirect, getRedirectResult, signOut } from 'firebase/auth';
-import './login_with_github_button.css';
+import './loginWithGithubButton.css'
+import { firebaseConfig } from '../config/firebase-config';
+import useFirebase from './useFirebase';
 
 
 const provider = new GithubAuthProvider();
@@ -16,9 +17,8 @@ export type LoginWithGithubProps = {
 
 export const LoginWithGithubButton = ( { text = "Login with Github", styling }: LoginWithGithubProps) => {
   const [ , setUser, status ] = useUser();
-  // const userContext = useContext(firebaseUserContext);
 
-  const app = useContext(firebaseAppContext)?.app;
+  const { app }  = useFirebase(firebaseConfig);
   if (!app) {
     throw Error('LoginWithGithubButton must be nested inside a Firebase App Provider!');
   }
@@ -82,6 +82,7 @@ export const LoginWithGithubButton = ( { text = "Login with Github", styling }: 
         if (!token) throw Error('Invalid Token From Github Authentication!');
 
         if (setUser !== null) {
+          console.log('Changing status to logged in');
           setUser({
             user: user,
             status: LoginStatus.LoggedIn,
@@ -104,6 +105,7 @@ export const LoginWithGithubButton = ( { text = "Login with Github", styling }: 
     event.preventDefault();
     try {
       await signOut(auth);
+      console.log('Changing status to logged out');
       setUser({
         user: null,
         status: LoginStatus.LoggedOut,

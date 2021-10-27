@@ -1,23 +1,31 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useRef } from 'react';
 import './addprojectform.css';
-import { ProjectProps } from '../App';
+import { ProjectInterface  } from './portfolio';
 
-type AddProjectProps = {
-    projects: ProjectProps[]
-    updateProjects: (projects: ProjectProps[]) => void
+
+export interface ProjectData {
+    id: string;
+    title: string;
+    img: string;
+    altText: string;
+    description: string;
+    url: string;
 }
 
-const AddProjectForm: React.FC<AddProjectProps> = ({ updateProjects, projects }: AddProjectProps) => {
-    const initialFormFields = {
-        title: '',
-        img: '',
-        altText: '',
-        description: '',
-        url: ''
+
+export interface AddProjectProps extends ProjectData  {
+    setProject: (project: ProjectInterface) => void;    
+    updateProjectFields: (project: ProjectInterface) => void;
+}
+
+export const AddProjectForm: React.FC<AddProjectProps> = ({ id, setProject, updateProjectFields, title, img, altText, description, url }: AddProjectProps) => {
+
+    const dismissButtonRef = useRef<HTMLButtonElement | null>(null);
+
+    const formFields = {
+        id, title, img, altText, description, url
     }
-    
-    
-    const [formFields, setFormFields] = useState(initialFormFields)
+
 
     const onFormFieldChange = (event: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
         const newFormData = {
@@ -33,13 +41,14 @@ const AddProjectForm: React.FC<AddProjectProps> = ({ updateProjects, projects }:
                 newFormData[event.currentTarget.name] = event.currentTarget.value;
         }
     
-        setFormFields(newFormData); 
+        updateProjectFields(newFormData); 
     };
 
     const onFormSubmit = (event: FormEvent) => {
         event.preventDefault();
     
         const newProject = {
+            id,
             title: formFields.title,
             img: formFields.img,
             altText: formFields.altText,
@@ -47,10 +56,8 @@ const AddProjectForm: React.FC<AddProjectProps> = ({ updateProjects, projects }:
             url: formFields.url
         }
     
-        const projectsList = [...projects, newProject]
-        
-        updateProjects(projectsList);
-        setFormFields(initialFormFields);
+        setProject(newProject);
+        dismissButtonRef.current?.click();
     };
 
     return(
@@ -87,11 +94,9 @@ const AddProjectForm: React.FC<AddProjectProps> = ({ updateProjects, projects }:
                 </form>
             </section>
             <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" onClick={onFormSubmit} className="btn btn-primary">Add Project</button>
+                <button type="button" ref={dismissButtonRef} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>;
+                <button type="submit" onClick={onFormSubmit} className="btn btn-primary">{ id === '' || !id ? 'Add' : 'Update'} Project</button>
             </div>
         </React.Fragment>
     )
 }
-
-export default AddProjectForm;

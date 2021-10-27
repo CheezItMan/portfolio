@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FireBaseConfigType } from '../config/firebase_config_type';
 import { firebaseUserContext } from './useFirebaseAuth';
-import { LoginStatus } from './login_status';
-import { FirebaseUserStateType } from './firebase_user_state';
+import { LoginStatus } from './LoginStatusType';
+import { FirebaseUserStateType } from './FirebaseUserStateType';
 
 type FirebaseUserProviderProps = {
     config: FireBaseConfigType
@@ -17,7 +17,6 @@ export const FirebaseUserProvider = ({ config, name, children }: FirebaseUserPro
         token: null,
     });
   const { Provider } = firebaseUserContext;
-//   const firebaseApp = useFirebase(firebaseConfig, name);
 
   const value = {
     ...userStatus,

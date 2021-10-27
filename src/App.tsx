@@ -9,9 +9,9 @@ import Portfolio from './components/portfolio';
 import Footer from './components/footer'; 
 import { sendEmail } from './utilities/send_email';
 import { useUser } from './firebase-auth/useFirebaseAuth';
-import { LoginWithGoogleButton } from './firebase-auth/LoginWithGoogleButton';
-import { LoginStatus } from './firebase-auth/login_status';
-import { LoginWithGithubButton } from './firebase-auth/Login_with_github_button';
+import { LoginWithGithubButton } from './firebase-auth/LoginWithGithubButton';
+import { useIsSuperAdmin } from './hooks/isSuperAdmin';
+import { firebaseConfig } from './config/firebase-config';
 
 const owner = 'Bozo the Clown'
 const avatarPic = 'http://placekitten.com/120/120';
@@ -55,16 +55,12 @@ export type ProjectProps = {
 }
 
 const App = () => {
-  const [user, , status] = useUser();
+  const [user] = useUser();
+
+  const isSuperAdmin = useIsSuperAdmin(firebaseConfig);
+  console.log(`isSuperAdmin == ${isSuperAdmin}`);
 
   const name = user && user.displayName ? user.displayName : 'Logged Out';
-  let statusMessage = 'Logged in';
-  if (status === LoginStatus.LoggedOut) {
-    statusMessage = 'Logged Out!'
-  } else if (status === LoginStatus.Pending) {
-    statusMessage = 'Pending...';
-  }
-
   
   return (
     <div className="App" id="home">
@@ -79,7 +75,7 @@ const App = () => {
       <div className="content">
         <Splash name={name} skills={skills} />
         <About />
-        <Portfolio />
+        <Portfolio admin={isSuperAdmin} />
         <Contact onSendMsg={sendEmail}
       />
       </div>
