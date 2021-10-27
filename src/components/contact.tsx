@@ -2,7 +2,6 @@ import React, { useState, FormEvent } from 'react';
 import { MessageData } from '../types/message_data.type';
 import './contact.css';
 import GoogleMapReact from 'google-map-react';
-import { FaEnvelope, FaMapMarkerAlt} from 'react-icons/fa';
 // import Marker from './marker';
 
 type ContactProps = {
